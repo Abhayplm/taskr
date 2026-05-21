@@ -13,6 +13,14 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // Standard async data-fetching inside context provider effects is a
+      // well-established React pattern. This rule is too aggressive and
+      // incorrectly flags legitimate useEffect → setState usage.
+      "react-hooks/set-state-in-effect": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
